@@ -1,0 +1,38 @@
+﻿@model AMS.ViewModel.DoctorModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="top-bottom-padding col-lg-8 center">
+    <h2>Doctor's Profile <a href="/Doctor/EditProfile" class="btn btn-primary">Edit Profile</a></h2>
+    <table class="table table-hover table-striped">
+        <tr>
+            <th>First Name</th>
+            <td>@Model.FirstName</td>
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>@Model.Gender</td>
+        </tr>
+        <tr>
+            <th>Specialization</th>
+            <td>@Model.Specialization</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>@Model.Age</td>
+        </tr>
+        <tr>
+            <th>Mobile Number</th>
+            <td>@Model.MobileNumber</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>House: @Model.HouseNo, Road No: @Model.RoadNo, Thana: @Model.Thana, Zilla: @Model.Zilla</td>
+        </tr>
+    </table>
+</div>

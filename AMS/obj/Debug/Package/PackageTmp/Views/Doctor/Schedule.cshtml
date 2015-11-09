@@ -1,0 +1,31 @@
+﻿<div class="top-bottom-padding col-lg-10 center">
+
+    <div class="form-group col-lg-6">
+        <h3>Dates</h3>
+        <div id="datePicker"></div>
+    </div>
+
+    <div class=" col-md-6 pull-right">
+        <form class="form-horizontal col-lg-6" method="POST" action="">
+            <fieldset>
+                <h3>Time</h3>
+                <div class="form-group">
+                    <label for="inputUserName" class="col-lg-3 control-label">From</label>
+                    <div class="col-lg-9">
+                        <input type="number" min="1" max="24" required="" name="timeFrom" placeholder="From" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName" class="col-lg-3 control-label">To</label>
+                    <div class="col-lg-9">
+                        <input type="number" min="1" max="24" required="" name="timeTo" placeholder="To" />
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div class="col-md-10"><button type="submit" class="btn btn-lg btn-success col-lg-offset-4 col-md-2">Save</button></div>
+<script>
+    $("#datePicker").multiDatesPicker();
+</script>

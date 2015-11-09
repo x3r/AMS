@@ -1,0 +1,168 @@
+﻿@model AMS.ViewModel.DoctorModel
+
+@{
+    ViewBag.Title = "Edit Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" role="main">
+    <div class="col-lg-8 top-bottom-padding center">
+        <div class="well bs-component">
+            <form class="form-horizontal" method="POST" action="/Doctor/EditProfile">
+                <fieldset>
+                    <legend>
+                        Profile
+                    </legend>
+                    <div class="form-group">
+                        <label for="inputFName" class="col-lg-3 control-label">First Name *</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="inputFName" name="FirstName" value="@Model.FirstName" placeholder="First Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputLName" class="col-lg-3 control-label">Last Name *</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="inputLName" name="LastName" value="@Model.LastName" placeholder="Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-3 control-label">Gender *</label>
+                        <div class="col-lg-9">
+                            <label class="radio-inline">
+                                <input type="radio" name="Gender" value="Male" checked="" /> Male
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="Gender" value="Female" /> Female
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-lg-3 control-label">Age *</label>
+                        <div class="col-lg-9">
+                            <input type="number" value="@Model.Age" min="26" max="100" class="form-control" id="inputPassword" placeholder="Age" name="Age">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Specialization *</label>
+                        <div class="col-lg-9">
+                            <input type="text" list="specializations" value="@Model.Specialization" class="form-control" placeholder="Specialization" name="Specialization">
+                            <datalist id="specializations">
+                                <option value="Allergology" />
+                                <option value="Anaesthesiology" />
+                                <option value="Cardiology(Cardiology foundation)" />
+                                <option value="Cardiothoracic Surgery" />
+                                <option value="Child and Adolescent Psychiatry and Psychotherapy" />
+                                <option value="Clinical Genetics" />
+                                <option value="Clinical Neurophysiology" />
+                                <option value="Dermatology and Venereology" />
+                                <option value="Emergency Medicine" />
+                                <option value="Endocrinology" />
+                                <option value="Gastroenterology" />
+                                <option value="Geriatrics" />
+                                <option value="Gynaecology and Obstetrics" />
+                                <option value="Infectious Diseases" />
+                                <option value="Internal Medicine" />
+                                <option value="Laboratory Medicine / Medical Biopathology" />
+                                <option value="Medical Microbiology" />
+                                <option value="Medical Oncology" />
+                                <option value="Nephrology" />
+                                <option value="Neurology" />
+                                <option value="Neurosurgery" />
+                                <option value="Nuclear Medicine" />
+                                <option value="Occupational Medicine" />
+                                <option value="Ophthalmology" />
+                                <option value="Oro-Maxillo-Facial Surgery" />
+                                <option value="Orthopaedics" />
+                                <option value="Otorhinolaryngology" />
+                                <option value="Paediatric Surgery" />
+                                <option value="Paediatrics" />
+                                <option value="Pathology" />
+                                <option value="Pharmacology" />
+                                <option value="Physical Medicine and Rehabilitation" />
+                                <option value="Plastic, Reconstructive and Aesthetic Surgery" />
+                                <option value="Pneumology" />
+                                <option value="Psychiatry" />
+                                <option value="Public Health Medicine" />
+                                <option value="Radiology" />
+                                <option value="Radiotherapy" />
+                                <option value="Rheumatology" />
+                                <option value="Surgery" />
+                                <option value="Thoracic Surgery" />
+                                <option value="Urology" />
+                                <option value="Vascular Surgery" />
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Mobile Number *</label>
+                        <div class="col-lg-9">
+                            <input type="text" value="@Model.MobileNumber" class="form-control" placeholder="Mobile Number" name="MobileNumber">
+                        </div>
+                    </div>
+                    <div>
+                        <h4><b>Address</b></h4>
+                        <hr />
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">House Number</label>
+                            <div class="col-lg-9">
+                                <input type="text" value="@Model.HouseNo" class="form-control" placeholder="House Number" name="HouseNo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Road Number</label>
+                            <div class="col-lg-9">
+                                <input type="text" value="@Model.RoadNo" class="form-control" placeholder="Road Number" name="RoadNo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Thana *</label>
+                            <div class="col-lg-9">
+                                <input type="text" value="@Model.Thana" class="form-control" placeholder="Thana" name="Thana">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 control-label">Zilla *</label>
+                            <div class="col-lg-9">
+                                <input type="text" value="@Model.Zilla" class="form-control" placeholder="Zilla" name="Zilla">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-9 col-lg-offset-3">
+                            <button class="btn btn-success" type="submit">Update</button>
+                            <button class="btn btn-primary" type="reset">Reset</button>
+
+                        </div>
+                    </div>
+                    @Html.ValidationSummary()
+                    @if (Session["Success"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert"
+                                    aria-hidden="true">
+                                &times;
+                            </button>
+                            @Session["Success"]
+                            @{Session.Remove("Success");}
+                        </div>
+                    }
+                    @if (Session["Error"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert"
+                                    aria-hidden="true">
+                                &times;
+                            </button>
+                            @Session["Error"]
+                            @{Session.Remove("Error");}
+                        </div>
+                    }
+                </fieldset>
+
+            </form>
+            @Html.ValidationSummary()
+        </div>
+    </div>
+</div>
+
