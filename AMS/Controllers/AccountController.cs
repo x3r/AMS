@@ -87,6 +87,7 @@ namespace AMS.Controllers
                         doctor.MobileNumber = model.MobileNumber;
                         _doctorService.SaveProfile(doctor, model.Email);
                         _doctorService.SaveAddress(new Address(), model.Email);
+                        _doctorService.SaveSchedule(new Schedule(), model.Email);
                     }
                     Session["Success"] = "Registration Successful";
 
@@ -109,7 +110,25 @@ namespace AMS.Controllers
             _editAccountModel.Email = user.Email;
             return View(_editAccountModel);
         }
-
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult RegisterPatient(String email, String password)
+        {
+            bool status = _accountService.ValidateRegistration(email);
+            if (status)
+            {
+                var user = new User();
+                user.Role = "Patient";
+                user.Email = email;
+                user.Password = password;
+                _accountService.SaveUser(user);
+                return Json("Registration successful", JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json("Email already exists", JsonRequestBehavior.AllowGet);
+            }
+        }
         [Authorize]
         [HttpPost]
         public ActionResult ChangePassword([Bind(Exclude = "Email")]EditAccountModel model)

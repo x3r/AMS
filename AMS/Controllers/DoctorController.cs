@@ -14,10 +14,11 @@ namespace AMS.Controllers
     public class DoctorController : Controller
     {
         private DoctorService _doctorService;
-
-        public DoctorController(DoctorService doctorService)
+        private PatientService _patientService;
+        public DoctorController(DoctorService doctorService, PatientService patientService)
         {
             _doctorService = doctorService;
+            _patientService = patientService;
         }
         //
         // GET: /Doctor/Profile
@@ -100,12 +101,47 @@ namespace AMS.Controllers
         [AllowAnonymous]
         public ActionResult Search(String area, String speciality, int page = 0, int size = 5)
         {
-            return Json(new { Doctors =_doctorService.SearchDoctors(area, speciality, page, size)}, JsonRequestBehavior.AllowGet);
+            return Json(new { Doctors = _doctorService.SearchDoctors(area, speciality, page, size) }, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Schedule()
         {
-            return View();
+            Schedule schedule = _doctorService.GetSchedule(User.Identity.Name);
+            return View(schedule);
         }
+
+        [HttpPost]
+        public ActionResult Schedule(Schedule schedule)
+        {
+            _doctorService.UpdateSchedule(schedule, User.Identity.Name);
+            return View(schedule);
+        }
+        [AllowAnonymous]
+        public ActionResult GetDetails(int userId)
+        {
+            return Json(new { Profile = _doctorService.GetDoctor(userId), Address = _doctorService.GetAddress(userId), Schedule = _doctorService.GetSchedule(userId) }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Appointments()
+        {
+            var date = DateTime.Now;
+            string today = date.ToString("M/d/yyyy");
+            ViewBag.Dates = _doctorService.GetSchedule(User.Identity.Name).Dates.Split(',').OrderBy(e => e).Where(e => e.CompareTo(today) >= 0);
+            return View(_doctorService.GetAppointments(User.Identity.Name));
+        }
+        [HttpPost]
+        public ActionResult AddAppointment(Appointment appointment, Patient patient)
+        {
+            appointment.DoctorId = _doctorService.GetDoctorId(User.Identity.Name);
+            _patientService.RegisterAppointment(appointment, patient);
+            return RedirectToAction("Appointments", "Doctor", _doctorService.GetAppointments(User.Identity.Name));
+        }
+
+        public ActionResult GetWaiting()
+        {
+            return View(_doctorService.GetWaitings(User.Identity.Name));
+        }
+
+
     }
 }

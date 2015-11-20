@@ -43,5 +43,13 @@ namespace AMS.Repository
         {
             return _databaseContext.Patients.Find(id);
         }
+
+        public int AddPatient(Patient patient)
+        {
+            _databaseContext.Patients.Add(patient);
+            _databaseContext.SaveChanges();
+            return patient.PatientId;
+        }
+ 
     }
 }

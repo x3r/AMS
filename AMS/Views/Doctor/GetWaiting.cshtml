@@ -1,0 +1,30 @@
+﻿@using AMS.Models
+@model System.Collections.Generic.List<AMS.Models.Waiting>
+<div class="top-bottom-padding col-lg-10 center">
+    <h2>Waiting List</h2>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">Sort by: </label><label class="col-lg-2 control-label"><input type="checkbox"/> Date</label><label class="col-lg-2 control-label"><input type="checkbox"/> Activity</label>
+        </div>
+    </div>
+    <div>
+        <table class="table table-hover table-striped table-bordered">
+            <tr>
+                <td style="text-align: center">
+                    <input type="checkbox" />
+                </td>
+                <th style="text-align: center">Name</th>
+                <th style="text-align: center">Date</th>
+                <th style="text-align: center">Taken At</th>
+            </tr>
+            @foreach (Waiting waiting in Model)
+            {
+                <tr>
+                    <td style="text-align: center"><input type="checkbox" /></td>
+                    <td style="text-align: center">@waiting.Name</td>
+                    <td style="text-align: center">@waiting.Date</td>
+                    <td style="text-align: center">@waiting.TakenAt</td>
+                </tr>}
+        </table>
+    </div>
+</div>

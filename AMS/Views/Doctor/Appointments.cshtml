@@ -1,0 +1,116 @@
+﻿@using AMS.ViewModel
+@model System.Collections.Generic.List<AMS.ViewModel.AppointmentModel>
+
+<div class="top-bottom-padding col-lg-10 center">
+    <h2>Appointments</h2>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label for="inputEmail" class="col-lg-1 control-label">Date: </label>
+            <div class="col-lg-2">
+                <select name="Date" class="form-control">
+                    <option>Date</option>
+                    @foreach (String str in ViewBag.Dates)
+                    {
+                        <option>@str</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="modal fade" id="patientModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Add Appointment</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" method="POST" action="@Url.Content("~/")/Doctor/AddAppointment">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-lg-4 control-label">Date *</label>
+                                    <div class="col-lg-8">
+                                        <select name="Date" class="form-control">
+                                            <option>Date</option>
+                                            @foreach (String str in ViewBag.Dates)
+                                            {
+                                                <option>@str</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputFName" class="col-lg-4 control-label">Name *</label>
+                                    <div class="col-lg-8">
+                                        <input type="text" class="form-control" required="" id="inputFName" name="Name" placeholder="Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-lg-4 control-label">Age *</label>
+                                    <div class="col-lg-8">
+                                        <input type="number" class="form-control" required="" placeholder="Age" name="Age">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-lg-4 control-label">Gender *</label>
+                                    <div class="col-lg-8">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="Gender" value="Male" checked="" /> Male
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="Gender" value="Female" /> Female
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-lg-4 control-label">Address *</label>
+                                    <div class="col-lg-8">
+                                        <input type="text" class="form-control" required="" placeholder="Address" name="Location">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-lg-4 control-label">Mobile Number *</label>
+                                    <div class="col-lg-8">
+                                        <input type="text" class="form-control" required="" placeholder="Mobile Number" name="MobileNumber">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-lg-3 pull-right">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button class="btn btn-success" type="submit">Add</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover table-striped table-bordered">
+        <tr>
+            <th>Serial Number</th>
+            <th>UID</th>
+            <th>Patient Name</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        @foreach (AppointmentModel appointment in Model)
+        {
+            <tr>
+                <td>@appointment.Serial</td>
+                <td>@appointment.Uid</td>
+                <td>@appointment.PatientName</td>
+                <td>@appointment.Date</td>
+                <td><a href="@Url.Content("~/")/Patient/Patient?id=@appointment.PatientId" class="btn btn-success">Details</a></td>
+            </tr>
+        }
+    </table>
+</div>

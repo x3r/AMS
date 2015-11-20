@@ -142,16 +142,22 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Waiting.cs" />
     <Compile Include="Repository\AddressRepository.cs" />
+    <Compile Include="Repository\AppointmentRepository.cs" />
     <Compile Include="Repository\DoctorRepository.cs" />
+    <Compile Include="Repository\ScheduleRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\PatientRepository.cs" />
+    <Compile Include="Repository\WaitingRepository.cs" />
     <Compile Include="Service\AccountService.cs" />
     <Compile Include="Service\DoctorService.cs" />
     <Compile Include="Service\IAccountService.cs" />
@@ -172,6 +178,33 @@
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\images\logo.jpg" />
     <Content Include="Content\images\shoping_cart.png" />
+    <Content Include="Content\images\ui-bg_diagonal-maze_20_6e4f1c_10x10.png" />
+    <Content Include="Content\images\ui-bg_diagonal-maze_40_000000_10x10.png" />
+    <Content Include="Content\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\images\ui-bg_fine-grain_10_eceadf_60x60.png" />
+    <Content Include="Content\images\ui-bg_fine-grain_10_f8f7f6_60x60.png" />
+    <Content Include="Content\images\ui-bg_fine-grain_15_d3c05a_60x60.png" />
+    <Content Include="Content\images\ui-bg_fine-grain_15_eceadf_60x60.png" />
+    <Content Include="Content\images\ui-bg_fine-grain_15_ffffff_60x60.png" />
+    <Content Include="Content\images\ui-bg_fine-grain_65_654b24_60x60.png" />
+    <Content Include="Content\images\ui-bg_fine-grain_68_b83400_60x60.png" />
+    <Content Include="Content\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\images\ui-icons_3572ac_256x240.png" />
+    <Content Include="Content\images\ui-icons_8c291d_256x240.png" />
+    <Content Include="Content\images\ui-icons_b83400_256x240.png" />
+    <Content Include="Content\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\images\ui-icons_fbdb93_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\images\wish_list.png" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.structure.css" />
@@ -193,6 +226,7 @@
     <Content Include="Content\font-awesome\fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\AMS.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\custom-date-picker.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.1.js" />
@@ -222,6 +256,9 @@
     <Content Include="Views\Doctor\GetProfile.cshtml" />
     <Content Include="Views\Doctor\EditProfile.cshtml" />
     <Content Include="Views\Doctor\Schedule.cshtml" />
+    <Content Include="Views\Doctor\Appointments.cshtml" />
+    <Content Include="Views\Patient\Patient.cshtml" />
+    <Content Include="Views\Doctor\GetWaiting.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

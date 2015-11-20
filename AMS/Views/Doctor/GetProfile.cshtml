@@ -4,8 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="top-bottom-padding col-lg-8 center">
-    <h2>Doctor's Profile <a href="/Doctor/EditProfile" class="btn btn-primary">Edit Profile</a></h2>
-    <table class="table table-hover table-striped">
+    <h2>Doctor's Profile <a href="@Url.Content("~/")/Doctor/EditProfile" class="btn btn-primary">Edit Profile</a></h2>
+    <table class="table table-hover table-striped table-bordered">
         <tr>
             <th>First Name</th>
             <td>@Model.FirstName</td>

@@ -93,4 +93,29 @@ namespace AMS.ViewModel
         [Compare("Password")]
         public String ConfirmPassword { get; set; }
     }
+    public class ScheduleModel
+    {
+        [Required]
+        public String Dates { get; set; }
+        [Required]
+        public int FromHour { get; set; }
+        [Required]
+        public int FromMinute { get; set; }
+        [Required]
+        public int ToHour { get; set; }
+        [Required]
+        public int ToMinute { get; set; }
+        [Required]
+        public int PatientNumber { get; set; }
+    }
+
+    public class AppointmentModel
+    {
+        public int PatientId { get; set; }
+        public String PatientName { get; set; }
+        public String VisitingTime { get; set; }
+        public String Date { get; set; }
+        public int Serial { get; set; }
+        public String Uid { get; set; }
+    }
 }

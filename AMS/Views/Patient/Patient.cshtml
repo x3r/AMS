@@ -1,0 +1,30 @@
+﻿@model AMS.Models.Patient
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="top-bottom-padding col-lg-9 center">
+    <h2>Patient Details</h2>
+    <table class="table table-hover table-striped table-bordered">
+        <tr>
+            <th>Name</th>
+            <td>@Model.Name</td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>@Model.Gender</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>@Model.Age</td>
+        </tr>
+        <tr>
+            <th>Mobile Number</th>
+            <td>@Model.MobileNumber</td>
+        </tr>
+        <tr>
+            <th>Address</th>
+            <td>@Model.Location</td>
+        </tr>
+    </table>
+</div>
